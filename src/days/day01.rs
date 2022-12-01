@@ -6,12 +6,7 @@ fn parse_input(path: &str) -> Vec<Vec<u64>> {
     input
         .split("\n\n")
         .into_iter()
-        .map(|s| {
-            s.split_whitespace()
-                .into_iter()
-                .map(|item| item.to_string().parse::<u64>().unwrap())
-                .collect()
-        })
+        .map(|s| s.lines().map(|item| item.parse().unwrap()).collect())
         .collect()
 }
 
