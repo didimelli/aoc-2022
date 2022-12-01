@@ -1,0 +1,32 @@
+minimum_pre_commit_version: 1.21.0
+repos:
+  - repo: local
+    hooks:
+      - id: safety
+        name: safety
+        entry: safety
+        language: system
+        pass_filenames: false
+        args: ["check", "--bare"]
+        stages: [push]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: check-added-large-files
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: detect-private-key
+      - id: mixed-line-ending
+
+  - repo: https://github.com/jorisroovers/gitlint
+    rev: v0.17.0
+    hooks:
+      - id: gitlint
+
+  - repo: https://github.com/doublify/pre-commit-rust
+    rev: v1.0
+    hooks:
+    -   id: fmt
+    -   id: cargo-check
+    # -   id: cargo-clippy
