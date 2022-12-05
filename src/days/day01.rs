@@ -10,7 +10,7 @@ fn parse_input(path: &str) -> Vec<Vec<u64>> {
         .collect()
 }
 
-fn part_one(input: &Vec<Vec<u64>>) -> u64 {
+fn part_one(input: &[Vec<u64>]) -> u64 {
     input
         .iter()
         .map(|sub| sub.iter().sum::<u64>())
@@ -18,14 +18,14 @@ fn part_one(input: &Vec<Vec<u64>>) -> u64 {
         .unwrap()
 }
 
-fn part_two(input: &Vec<Vec<u64>>) -> u64 {
+fn part_two(input: &[Vec<u64>]) -> u64 {
     let mut asd = input
         .iter()
         .map(|sub| sub.iter().sum::<u64>())
         .collect::<Vec<u64>>();
     asd.sort();
     let len = asd.len();
-    asd[len - 3..len].into_iter().sum()
+    asd[len - 3..len].iter().sum()
 }
 
 pub fn solve() -> SolutionPair {

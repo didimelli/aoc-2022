@@ -108,14 +108,12 @@ fn parse_input(path: &str) -> Vec<Match> {
         .collect()
 }
 
-fn part_one(input: &Vec<Match>) -> u32 {
-    input.into_iter().fold(0, |sum, x| sum + x.points())
+fn part_one(input: &[Match]) -> u32 {
+    input.iter().fold(0, |sum, x| sum + x.points())
 }
 
-fn part_two(input: &Vec<Match>) -> u32 {
-    input
-        .into_iter()
-        .fold(0, |sum, x| sum + x.points_part_two())
+fn part_two(input: &[Match]) -> u32 {
+    input.iter().fold(0, |sum, x| sum + x.points_part_two())
 }
 
 pub fn solve() -> SolutionPair {
